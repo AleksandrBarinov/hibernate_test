@@ -15,5 +15,9 @@
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
+
+        <mapping resource="entities/Cars.xml"/>
+        <mapping class="models.Test"/>
+
     </session-factory>
 </hibernate-configuration>
