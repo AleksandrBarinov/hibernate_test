@@ -13,13 +13,12 @@ public class Test {
     @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Basic(optional = false)
     private String name;
-
     private String descs;
     @CreationTimestamp
-    //@UpdateTimestamp
     private Date date;
+
+    private Address address;
 
     public Integer getId() {
         return id;
@@ -33,6 +32,9 @@ public class Test {
     public Date getDate() {
         return date;
     }
+    public Address getAddress() {
+        return address;
+    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -45,5 +47,8 @@ public class Test {
     }
     public void setDate(Date date) {
         this.date = date;
+    }
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
