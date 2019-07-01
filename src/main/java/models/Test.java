@@ -15,11 +15,24 @@ public class Test {
     private Integer id;
     @Basic(optional = false)
     private String name;
-    private String descs;
 
+    private String descs;
     @CreationTimestamp
     //@UpdateTimestamp
     private Date date;
+
+    public Integer getId() {
+        return id;
+    }
+    public String getName() {
+        return name;
+    }
+    public String getDescs() {
+        return descs;
+    }
+    public Date getDate() {
+        return date;
+    }
 
     public void setId(Integer id) {
         this.id = id;
