@@ -1,16 +1,25 @@
 package models;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table (name = "test")
 public class Test {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Basic(optional = false)
     private String name;
     private String descs;
+
+    @CreationTimestamp
+    //@UpdateTimestamp
+    private Date date;
 
     public void setId(Integer id) {
         this.id = id;
@@ -20,5 +29,8 @@ public class Test {
     }
     public void setDescs(String descs) {
         this.descs = descs;
+    }
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

@@ -1,9 +1,9 @@
 <hibernate-mapping>
-    <class name="models.Cars">
-        <id name="id" column="id" >
-            <generator class="native"/>
-        </id>
-        <property name="marka" column="marka"/>
-        <property name="model" column="model"/>
-    </class>
+<class name="models.Cars">
+    <id name="id" column="id">
+        <generator class="native"/>
+    </id>
+    <property name="marka" column="marka"/>
+    <property name="model" column="model"/>
+</class>
 </hibernate-mapping>
