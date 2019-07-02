@@ -1,11 +1,7 @@
-import javassist.tools.rmi.ObjectNotFoundException;
-import models.Address;
-import models.Cars;
-import models.Test;
+import models.HomeAddress;
+import models.Person;
 import org.hibernate.Session;
 import util.HibernateUtil;
-
-import java.util.Date;
 
 public class TestHibernate {
 
@@ -13,27 +9,13 @@ public class TestHibernate {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        //String sqlQuery = "SET search_path TO test, public;";
-        //session.createSQLQuery(sqlQuery).executeUpdate();
 
-//        Test test = new Test();
-//        test.setId(9);
-//        test.setName("aaa");
-//        test.setDescs("desc");
-//        test.setDate(new Date());
-//        test.setAddress(new Address("Moscow","Mira",1));
-//        Cars cars = new Cars();
-//        cars.setId(6);
-//        cars.setMarka("toyota");
-//        cars.setModel("rav4");
-//        session.save(test);
-//        session.save(cars);
+        HomeAddress homeAddress = new HomeAddress("Mira");
+        Person person = new Person("Piter",homeAddress);
+        homeAddress.setPerson(person);
 
-        //Test testLoad = session.load(Test.class,8);
-        Test testGet = session.get(Test.class,8);
-
-        //System.out.println("load " + testLoad.getAddress());
-        System.out.println("get " + testGet.getName());
+        session.persist(homeAddress);
+        session.persist(person);
 
         session.getTransaction().commit();
         HibernateUtil.closeSession();

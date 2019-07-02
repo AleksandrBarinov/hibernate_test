@@ -1,9 +1,10 @@
 package models;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 @Embeddable
-public class Address {
+public class Address implements Serializable {
 
     public Address(){}
 

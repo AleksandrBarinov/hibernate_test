@@ -19,5 +19,8 @@
         <mapping resource="entities/Cars.xml"/>
         <mapping class="models.Test"/>
 
+        <mapping class="models.Person"/>
+        <mapping class="models.HomeAddress"/>
+
     </session-factory>
 </hibernate-configuration>

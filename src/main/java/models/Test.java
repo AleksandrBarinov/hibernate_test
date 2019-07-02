@@ -10,10 +10,9 @@ import java.util.Date;
 @Table (name = "test")
 public class Test {
 
-
+    @Id
     //@GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Access(AccessType.FIELD)
     private String name;
     private String descs;
     @CreationTimestamp
@@ -21,12 +20,11 @@ public class Test {
 
     private Address address;
 
-    @Id
     public Integer getId() {
         return id;
     }
     public String getName() {
-        return "mr. " + name;
+        return name;
     }
     public String getDescs() {
         return descs;
