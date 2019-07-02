@@ -1,22 +1,16 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class HomeAddress {
     @Id
     @GeneratedValue
     private int id;
-    String street;
+    private String street;
 
-    @OneToOne(mappedBy = "homeAddress")
-    Person person;
-
-    public HomeAddress() {
-    }
+    @ManyToOne
+    private Person person;
 
     public void setPerson(Person person) {
         this.person = person;

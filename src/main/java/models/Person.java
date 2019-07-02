@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Person {
@@ -8,11 +9,13 @@ public class Person {
     @GeneratedValue
     private int id;
     private String name;
-    @OneToOne(cascade = CascadeType.REMOVE)
-    public HomeAddress homeAddress;
 
-    public Person(String name, HomeAddress homeAddress) {
+    @OneToMany(mappedBy = "person")
+    public List<HomeAddress> homeAddresses;
+
+    public Person(String name, List<HomeAddress> homeAddresses) {
         this.name = name;
-        this.homeAddress = homeAddress;
+        this.homeAddresses = homeAddresses;
     }
+
 }
