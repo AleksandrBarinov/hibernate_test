@@ -1,4 +1,4 @@
-package models;
+package models.test;
 
 public class Cars {
 

@@ -1,4 +1,4 @@
-package models;
+package models.test;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
