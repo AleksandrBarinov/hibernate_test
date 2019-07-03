@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class HomeAddress {
@@ -9,16 +10,15 @@ public class HomeAddress {
     private int id;
     private String street;
 
-    @ManyToOne
-    private Person person;
+    @ManyToMany
+    private List<Person> persons;
 
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
+    public HomeAddress(){}
     public HomeAddress(String street) {
         this.street = street;
     }
 
-
+    public void setPerson(List<Person> persons) {
+        this.persons = persons;
+    }
 }

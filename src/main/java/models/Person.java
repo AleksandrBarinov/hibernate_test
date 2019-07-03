@@ -10,12 +10,12 @@ public class Person {
     private int id;
     private String name;
 
-    @OneToMany(mappedBy = "person")
-    public List<HomeAddress> homeAddresses;
+    @ManyToMany(mappedBy = "persons")
+    private List<HomeAddress> homeAddresses;
 
+    public Person(){}
     public Person(String name, List<HomeAddress> homeAddresses) {
         this.name = name;
         this.homeAddresses = homeAddresses;
     }
-
 }

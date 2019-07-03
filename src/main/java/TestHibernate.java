@@ -19,10 +19,11 @@ public class TestHibernate {
         homeAddresses.add(homeAddress);
         homeAddresses.add(homeAddress1);
 
-
+        List<Person> people = new ArrayList<Person>();
         Person person = new Person("Piter",homeAddresses);
-        homeAddress.setPerson(person);
-            homeAddress1.setPerson(person);
+        people.add(person);
+        homeAddress.setPerson(people);
+
         session.persist(homeAddress);
         session.persist(homeAddress1);
         session.persist(person);
