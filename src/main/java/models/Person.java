@@ -10,7 +10,11 @@ public class Person {
     private int id;
     private String name;
 
-    @ManyToMany(mappedBy = "persons")
+    @ManyToMany//(mappedBy = "persons")
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "personId"),
+            inverseJoinColumns = @JoinColumn(name = "homeId")
+    )
     private List<HomeAddress> homeAddresses;
 
     public Person(){}
