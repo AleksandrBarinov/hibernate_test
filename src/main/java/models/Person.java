@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,13 @@ public class Person {
 //    @OrderColumn
     @org.hibernate.annotations.OrderBy(clause = "marks DESC")
     private List<Integer> marks;
+
+    @NaturalId
+    private String iCode;
+
+    public void setiCode(String iCode) {
+        this.iCode = iCode;
+    }
 
     public List<Integer> getMarks() {
         return marks;
