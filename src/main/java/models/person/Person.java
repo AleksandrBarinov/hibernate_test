@@ -1,4 +1,4 @@
-package models;
+package models.person;
 
 import org.hibernate.annotations.NaturalId;
 
@@ -14,8 +14,7 @@ public class Person {
     @ElementCollection
     private List<HomeAddress> homeAddresses;
     @ElementCollection
-//    @OrderBy("marks")
-//    @OrderColumn
+
     @org.hibernate.annotations.OrderBy(clause = "marks DESC")
     private List<Integer> marks;
 

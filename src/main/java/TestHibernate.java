@@ -1,9 +1,11 @@
-import models.HomeAddress;
-import models.Person;
+import models.Car;
+import models.Opel;
+import models.Toyota;
+import models.person.Person;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TestHibernate {
@@ -13,24 +15,13 @@ public class TestHibernate {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-//        HomeAddress homeAddress = new HomeAddress("Mira");
-//        HomeAddress homeAddress1 = new HomeAddress("Mira1");
-//        List<HomeAddress> homeAddresses = new ArrayList<HomeAddress>();
-//        homeAddresses.add(homeAddress);
-//        homeAddresses.add(homeAddress1);
-//
-//        List<Integer> marks = new ArrayList<Integer>();
-//        marks.add(1);
-//        marks.add(3);
-//        marks.add(2);
-//        Person person = new Person("Piterw",homeAddresses,marks);
-//        person.setiCode("1232");
-//
-//        session.persist(person);
-        Person person = session.byNaturalId(Person.class).using("iCode","123").load();
-        System.out.println(person.getMarks());
-//        Person load = session.load(Person.class,1);
-//        System.out.println(load.getMarks());
+        Toyota toyota = new Toyota("123","220");
+        Opel opel = new Opel("321",499);
+        Car car = new Car("400");
+
+        session.persist(toyota);
+        session.persist(opel);
+        session.persist(car);
 
         session.getTransaction().commit();
         HibernateUtil.closeSession();
