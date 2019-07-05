@@ -15,13 +15,27 @@ public class TestHibernate {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Toyota toyota = new Toyota("123","220");
-        Opel opel = new Opel("321",499);
         Car car = new Car("400");
 
-        session.persist(toyota);
-        session.persist(opel);
+        System.out.println(car.getId());
         session.persist(car);
+//        session.flush();
+        System.out.println(car.getId());
+//        car.setNumber("321");
+//        session.detach(car);
+//        car.setNumber("456");
+//        session.merge(car);
+//        session.update(car);
+//        session.remove(car);
+//        System.out.println(car.getId());
+//        System.out.println(car.getNumber());
+//        System.out.println(car.getNumber());
+
+        session.getTransaction().commit();
+
+        car.setNumber("789");
+        session.refresh(car);
+        System.out.println(car.getNumber());
 
         session.getTransaction().commit();
         HibernateUtil.closeSession();
