@@ -13,7 +13,7 @@
         </property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
         <property name="show_sql">true</property>
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">validate</property>
         <property name="current_session_context_class">thread</property>
 
         <!--<mapping resource="entities/Cars.xml"/>-->
@@ -21,9 +21,10 @@
 
         <!--<mapping class="models.person.Person"/>-->
         <!--<mapping class="models.person.HomeAddress"/>-->
-        <mapping class="models.Car"/>
-        <mapping class="models.Toyota"/>
-        <mapping class="models.Opel"/>
-
+        <!--<mapping class="models.cars.Car"/>-->
+        <!--<mapping class="models.cars.Toyota"/>-->
+        <!--<mapping class="models.cars.Opel"/>-->
+        <mapping class="models.users.User"/>
+        <mapping class="models.users.Role"/>
     </session-factory>
 </hibernate-configuration>

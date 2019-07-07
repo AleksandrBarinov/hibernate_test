@@ -1,4 +1,4 @@
-package models;
+package models.cars;
 
 import javax.persistence.*;
 

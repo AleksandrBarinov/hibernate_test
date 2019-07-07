@@ -1,4 +1,4 @@
-import models.Car;
+import models.cars.Car;
 import org.hibernate.LockMode;
 import org.hibernate.Session;
 import util.HibernateUtil;

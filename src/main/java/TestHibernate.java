@@ -1,6 +1,4 @@
-import models.Car;
-import models.Opel;
-import models.Toyota;
+import models.cars.Car;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
