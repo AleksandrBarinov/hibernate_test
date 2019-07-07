@@ -1,34 +1,33 @@
-import models.Car;
+import models.users.Role;
+import models.users.User;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import util.HibernateUtil;
 
+import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.query.Query;
 
 public class TestHQL {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
+
         session.beginTransaction();
+        Query query = session.createQuery("select u from usr u join fetch u.roleList");
 
+        List<User> users = query.list();
 
-        Query query = session.createQuery("select c.number from Car as c where id = 11 or number = :n group by c.number having c.number = :n");
-        query.setParameter("n","400");
-
-//        query.setMaxResults(2);
-//        query.setFirstResult(1);
-
-        List<String> groupedNums = query.list();
-        for (String s: groupedNums){
-            System.out.println(s);
+        for (User user: users){
+            System.out.println(user.getName());
+            System.out.println(user.getRoleList().size());
         }
 
-//        Car car = (Car) query.uniqueResult();
-//        System.out.println(car.getNumber());
-
-//        List<Car> list = query.list();
-//        for (Car car: list){
-//            System.out.println(car.getNumber());
-//        }
+//        //add user
+//        List<Role> roleList = new ArrayList<>();
+//        Role driver = new Role("driver");
+//        roleList.add(driver);
+//        User user = new User("Bob");
+//        user.setRoleList(roleList);
+//        session.persist(user);
 
         session.getTransaction().commit();
     }
