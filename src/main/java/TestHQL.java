@@ -1,9 +1,9 @@
 import models.users.Role;
 import models.users.User;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import util.HibernateUtil;
 
-import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +20,13 @@ public class TestHQL {
 //        Query query = session.createQuery("insert into usr (name) select name from Role where id = 7");
 //        query.executeUpdate();
 
-        Query query = session.createQuery("delete from usr where id = 38");
-        query.executeUpdate();
+//        Query query = session.createQuery("delete from usr where id = 38");
+//        query.executeUpdate();
+
+        Query query = session.createNamedQuery("getUserByName");
+        query.setParameter("name","Bob");
+        User user = (User) query.uniqueResult();
+        System.out.println(user.getName());
 
 //        //add user
 //        List<Role> roleList = new ArrayList<>();
