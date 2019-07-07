@@ -17,7 +17,10 @@ public class TestHQL {
 //        query.setParameter("name","Richard");
 //        query.executeUpdate();
 
-        Query query = session.createQuery("insert into usr (name) select name from Role where id = 7");
+//        Query query = session.createQuery("insert into usr (name) select name from Role where id = 7");
+//        query.executeUpdate();
+
+        Query query = session.createQuery("delete from usr where id = 38");
         query.executeUpdate();
 
 //        //add user
