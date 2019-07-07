@@ -10,4 +10,6 @@ public class Opel extends Car{
         super(number);
         this.price = price;
     }
+    public Opel() {
+    }
 }

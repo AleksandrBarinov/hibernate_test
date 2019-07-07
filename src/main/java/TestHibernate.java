@@ -1,12 +1,8 @@
 import models.Car;
 import models.Opel;
 import models.Toyota;
-import models.person.Person;
 import org.hibernate.Session;
 import util.HibernateUtil;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class TestHibernate {
 
@@ -33,10 +29,10 @@ public class TestHibernate {
 
         session.getTransaction().commit();
 
+        session.beginTransaction();
         car.setNumber("789");
         session.refresh(car);
         System.out.println(car.getNumber());
-
         session.getTransaction().commit();
         HibernateUtil.closeSession();
     }

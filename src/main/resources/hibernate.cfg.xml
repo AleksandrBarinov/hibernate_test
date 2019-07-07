@@ -21,7 +21,7 @@
 
         <!--<mapping class="models.person.Person"/>-->
         <!--<mapping class="models.person.HomeAddress"/>-->
-
+        <mapping class="models.Car"/>
         <mapping class="models.Toyota"/>
         <mapping class="models.Opel"/>
 

@@ -10,4 +10,6 @@ public class Toyota extends Car{
         super(number);
         this.maxSpeed = maxSpeed;
     }
+    public Toyota() {
+    }
 }
