@@ -3,23 +3,19 @@ import models.users.User;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.query.Query;
 
 public class TestHQL {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
-        Query query = session.createQuery("select u from usr u join fetch u.roleList");
 
-        List<User> users = query.list();
-
-        for (User user: users){
-            System.out.println(user.getName());
-            System.out.println(user.getRoleList().size());
-        }
+        Query query = session.createQuery("update usr set name = :name where id = 2");
+        query.setParameter("name","Richard");
+        query.executeUpdate();
 
 //        //add user
 //        List<Role> roleList = new ArrayList<>();
