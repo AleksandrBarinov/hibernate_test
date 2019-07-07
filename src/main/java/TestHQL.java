@@ -10,7 +10,7 @@ public class TestHQL {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query query = session.createQuery("from Car where id = 11");
+        Query query = session.createQuery("select new Car(c.number) from Car as c where id = 11");
 
         Car car = (Car) query.uniqueResult();
         System.out.println(car.getNumber());
