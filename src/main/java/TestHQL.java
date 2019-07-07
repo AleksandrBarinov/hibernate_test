@@ -13,8 +13,11 @@ public class TestHQL {
 
         session.beginTransaction();
 
-        Query query = session.createQuery("update usr set name = :name where id = 2");
-        query.setParameter("name","Richard");
+//        Query query = session.createQuery("update usr set name = :name where id = 2");
+//        query.setParameter("name","Richard");
+//        query.executeUpdate();
+
+        Query query = session.createQuery("insert into usr (name) select name from Role where id = 7");
         query.executeUpdate();
 
 //        //add user
