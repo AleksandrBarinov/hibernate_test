@@ -3,7 +3,6 @@ package models.users;
 import javax.persistence.*;
 import java.util.List;
 
-
 @Entity(name = "usr")
 @NamedQuery(name = "getUserByName", query = "from usr where name = :name")
 public class User {
@@ -15,6 +14,11 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
+
+    public int getId() {
+        return id;
+    }
+
     private String name;
 
     public String getName() {

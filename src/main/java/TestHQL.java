@@ -1,6 +1,7 @@
 import models.users.Role;
 import models.users.User;
 import org.hibernate.Session;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
 
@@ -23,10 +24,17 @@ public class TestHQL {
 //        Query query = session.createQuery("delete from usr where id = 38");
 //        query.executeUpdate();
 
-        Query query = session.createNamedQuery("getUserByName");
-        query.setParameter("name","Bob");
-        User user = (User) query.uniqueResult();
-        System.out.println(user.getName());
+//        Query query = session.createNamedQuery("getUserByName");
+//        query.setParameter("name","Bob");
+//        User user = (User) query.uniqueResult();
+//        System.out.println(user.getName());
+
+        NativeQuery query = session.createNativeQuery("select * from usr", User.class);
+        List<User> users = query.getResultList();
+
+        for (User user: users){
+            System.out.println("id " + user.getId() + " name " + user.getName());
+        }
 
 //        //add user
 //        List<Role> roleList = new ArrayList<>();
